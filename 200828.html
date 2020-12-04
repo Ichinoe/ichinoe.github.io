@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title> Ruby 笔记 - Ichinoe </title>
+
+  <!-- Favicons -->
+  <link href="img/icon/meta_icon.png" rel="icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.css" rel="stylesheet">
+
+</head>
+
+<body leftmargin=0 topmargin=0 οncοntextmenu='return false' οndragstart='return false' onselectstart ='return false' οnselect='document.selection.empty()' οncοpy='document.selection.empty()' onbeforecopy='return false' οnmοuseup='document.selection.empty()'>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"> Ichinoe </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"> Domain </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html"> About </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html"> Contact </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Header -->
+  <header class="masthead" style="background-image: url('img/header/200828.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 mx-auto">
+          <div class="page-heading" style="cursor:default">
+            <h1> Ruby 笔记 </h1>
+            <span class="subheading"> Basic Syntax of Ruby </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section id="ruby">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 mx-auto" style="cursor:default">
+          <p>
+            <h4>Ⅰ 面向对象</h4>
+            <h5>&emsp;1. 面向对象程式设计的基本特征</h5>
+            &emsp;&emsp;a. 封装：把对象的属和行为结合成一个独立的单位，并尽可能隐蔽内部细节<br/>
+            &emsp;&emsp;b. 多态：一个方法名属于多个对象，不同对象的处理结果不一样<br/>
+            &emsp;&emsp;c. 继承：是可以定义一个子类来继承父类的方法<br/>
+            <h5>&emsp;2. 动态语言的设计理念</h5>
+            &emsp;&emsp;a. 鸭子类型：关注的不是对象的类型本身，而是其使用方法<br/>
+            &emsp;&emsp;b. 猴子补丁：可以重新打开类，重定义方法或添加新方法<br/>
+            <h5>&emsp;3. 返回值：任何表达方式都有返回值，表达式和语句没有区别</h5>
+            &emsp;&emsp;a. 计算式的结果，赋值语句的值都是返回值<br/>
+            &emsp;&emsp;b. 控制结构的最后一句的值是整个语句的返回值<br/>
+            <h5>&emsp;4. 代码规范</h5>
+            &emsp;&emsp;a. 标点与排版<br/>
+            &emsp;&emsp;&emsp;i. 换行可以作为语句的结束标志，使用Unix风格换行符（\n）<br/>
+            &emsp;&emsp;&emsp;&emsp;1) 可以使用“;”，一般用于大量重复简单语句，end前可以省略;<br/>
+            &emsp;&emsp;&emsp;&emsp;2) 空类/空方法使用显式单行定义<br/>
+            &emsp;&emsp;&emsp;ii. 缩进与空白：两个空格（软Tab）<br/>
+            &emsp;&emsp;&emsp;&emsp;1) 标点符号后一个空格，二元运算符左右各一个空格<br/>
+            &emsp;&emsp;&emsp;&emsp;2) ./::/**运算符左右无空格<br/>
+            &emsp;&emsp;b. 标识符命名规范：大小写敏感，不缩写，尽量不用非ASCII字符<br/>
+            &emsp;&emsp;&emsp;i. 变量/方法：小写单词，下划线连接<br/>
+            &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;方法的?/!结尾一般返回布尔值/修改自身<br/>
+            &emsp;&emsp;&emsp;ii. 常量（及类与模块）：大写字母开头单词，无下划线连接<br/>
+            &emsp;&emsp;c. 类、方法与常量的文档标记<br/>
+            &emsp;&emsp;&emsp;i. 实例方法：类名#方法名<br/>
+            &emsp;&emsp;&emsp;ii. 其他：类/模块名::方法名、父类::子类、模块名::常量名<br/>
+            <br/><hr/><br/>
+            <h4>Ⅱ 控制语句</h4>
+            <h5>&emsp;1. 注释</h5>
+            &emsp;&emsp;a. #：单行注释（到物理行行尾）<br/>
+            &emsp;&emsp;&nbsp;&nbsp;&nbsp;= begin ~ = end：多行注释<br/>
+            &emsp;&emsp;b. 特殊注释<br/>
+            &emsp;&emsp;&emsp;i. shebang注释：#! E:/ruby -w：置于首行，用于指定文件<br/>
+            &emsp;&emsp;&emsp;ii. 魔法注释：# encoding: UTF-8：置于次行（除非无shebang）可指定编码<br/>
+            &emsp;&emsp;&emsp;iii. 某些特定格式的注释可以生成API文档的HTML界面<br/>
+            <h5>&emsp;2. 条件语句（then皆可缺省，case与when缩进深度相同）</h5>
+            &emsp;&emsp;a. if ~ then ~ elsif ~ then ~ else ~ end<br/>
+            &emsp;&emsp;b. unless ~ then ~ else ~ end<br/>
+            &emsp;&emsp;c. case ~ when ~ then ~ when ~ then ~ else ~ end<br/>
+            <h5>&emsp;3. 循环语句(do皆可缺省)</h5>
+            &emsp;&emsp;a. for n in X do ~ end<br/>
+            &emsp;&emsp;b. while ~ do ~ end<br/>
+            &emsp;&emsp;c. until ~ do ~ end<br/>
+            <h5>&emsp;4. 异常处理语句</h5>
+            &emsp;&emsp;a. begin ~ rescue (=> var) ~ (else ~)(ensure ~) end<br/>
+            &emsp;&emsp;&emsp;i. rescue：在begin部分出现异常时的执行部分<br/>
+            &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;当方法中无rescue时会逆向查找异常处理，跳出方法被上一层rescue捕捉<br/>
+            &emsp;&emsp;&emsp;ii. else：在begin部分未出现异常时的执行部分<br/>
+            &emsp;&emsp;&emsp;iii. ensure：后处理，无论处理是否正常进行都会执行的语句<br/>
+            &emsp;&emsp;&emsp;iv. retry：重新进行begin以下的处理<br/>
+            &emsp;&emsp;b. 当在方法/类内或异常处理范围是整个程序时，可省略begin和end<br/>
+            <h5>&emsp;5. 控制语句：</h5>
+            &emsp;&emsp;a. break语句<br/>
+            &emsp;&emsp;&emsp;i. 循环中跳出当前循环<br/>
+            &emsp;&emsp;&emsp;ii. 块中返回调用块的地方，计算结果会被忽略<br/>
+            &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;使用 break n 语句，可以指定break时的块返回值<br/>
+            &emsp;&emsp;b. next语句<br/>
+            &emsp;&emsp;&emsp;i. 循环中跳过当前循环开始下一次循环<br/>
+            &emsp;&emsp;&emsp;ii. 块中使用next，会中断当前处理（数据清零返回nil）<br/>
+            &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;使用next n，可以指定next时的块返回值<br/>
+            &emsp;&emsp;c. redo语句<br/>
+            &emsp;&emsp;&emsp;i. 循环中再执行一次相同的循环<br/>
+            &emsp;&emsp;&emsp;ii. 块中使用redo，可能会重复同一个参数陷入死循环<br/>
+            <h5>&emsp;6. 方法用语句</h5>
+            &emsp;&emsp;a. 调用：除使用{}形式的块时，可以省略括号<br/>
+            &emsp;&emsp;&emsp;i. 参数传递顺序：普通参数→带默认值参数从前到后→*args<br/>
+            &emsp;&emsp;&emsp;ii. 用数列与散列传递参数：元素个数须与参数个数一致<br/>
+            &emsp;&emsp;&emsp;&emsp;1) 用*arr将数组的各元素传递给方法<br/>
+            &emsp;&emsp;&emsp;&emsp;2) 可以使用散列（键为符号）作为关键字传递参数（可以省略 {}）<br/>
+            &emsp;&emsp;b. def语句：def method(a_1, a_2, …, a_n) ~ end：定义/重定义<br/>
+            &emsp;&emsp;&nbsp;&nbsp;&nbsp;undef语句：undef :method/undef method：子类中删除超类方法<br/>
+            &emsp;&emsp;c. return语句：可省略（没有返回值时默认为nil）<br/>
+            &emsp;&emsp;&emsp;i. 可用于立即跳出方法<br/>
+            &emsp;&emsp;&emsp;ii. return可返回多个值，用逗号连接<br/>
+            &emsp;&emsp;d. yield(i_1, …, i_n; j_1, …, j_n)：相当于以参数i_n调用块函数<br/>
+            &emsp;&emsp;&emsp;i. 块变量数量不一致时，多余的无法传递，少的值为nil<br/>
+            &emsp;&emsp;&emsp;ii. 在块变量后面可以声明块局部变量（也可以在块中声明）<br/>
+            &emsp;&emsp;&emsp;iii. 块变量也可用*args传递多余的参数<br/>
+            <h5>&emsp;7. 类与模块用语句</h5>
+            &emsp;&emsp;a. 创建类：class ~ def initialize ~ end ~ end<br/>
+            &emsp;&emsp;&nbsp;&nbsp;&nbsp;创建模块：module ~ do_something end<br/>
+            &emsp;&emsp;b. 创建类方法：<br/>
+            &emsp;&emsp;&emsp;i. Sin = Class.new<br/>
+            &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;class << Sin def ~ do_something end end<br/>
+            &emsp;&emsp;&emsp;ii. class ~ class << self def ~ do_something end end end<br/>
+            &emsp;&emsp;&emsp;iii. class ~.~ def ~ do_something end end<br/>
+            &emsp;&emsp;c. 方法权限语句：单个设定/统一设定<br/>
+            &emsp;&emsp;&emsp;i. public（默认）：以实例方法的形式向外部公开该方法，一般可以缺省<br/>
+            &emsp;&emsp;&emsp;ii. private：在指定接收者的情况下不能调用该方法<br/>
+            &emsp;&emsp;&emsp;&emsp;1) 只能在类或子类的实例方法中使用缺省self的方式调用该方法<br/>
+            &emsp;&emsp;&emsp;&emsp;2) initialize 方法会被默认定义为private<br/>
+            &emsp;&emsp;&emsp;&emsp;3) Object的顶层私有方法接收者是main对象（是Object类的实例）<br/>
+            &emsp;&emsp;&emsp;iii. protected：在同一个类中时可将该方法作为实例方法调用<br/>
+            &emsp;&emsp;d. 类的继承<br/>
+            &emsp;&emsp;&emsp;i. class subclass < superclass ~ end<br/>
+            &emsp;&emsp;&emsp;ii. super(i_1, i_2, …, i_n)：沿用超类的方法<br/>
+            <h5>&emsp;8. 操作符：</h5>
+            &emsp;&emsp;a. 修饰符：if/unless/while/until/rescue后置<br/>
+            &emsp;&emsp;&emsp;i. 修饰里修饰符最近的一条语句<br/>
+            &emsp;&emsp;&emsp;ii. 可以用()/begin ~ end合并多条语句为一条<br/>
+            &emsp;&emsp;&emsp;iii. 使用begin ~ end的循环时，循环体内的语句至少被执行一次<br/>
+            &emsp;&emsp;b. 行继续符：置于物理行行尾的反斜杠，用于连接逻辑行<br/>
+            &emsp;&emsp;&emsp;i. 不是转义字符<br/>
+            &emsp;&emsp;&emsp;ii. 在""字符串中，""、''间连接、链式方法中可用<br/>
+            <h5>&emsp;9. 继承属性</h5>
+            &emsp;&emsp;a. BEGIN{}与END{}：在其余所有代码之前/后执行<br/>
+            &emsp;&emsp;&emsp;i. 有多个BEGIN时，先出现的最先执行<br/>
+            &emsp;&emsp;&emsp;ii. 有多个END时，先出现的最后执行<br/>
+            &emsp;&emsp;&emsp;iii. 不可以用do ~ end代替{}<br/>
+            &emsp;&emsp;b. __END__：单独一行表示程序结束，数据区开始<br/>
+            &emsp;&emsp;c. proc.(x_1, x_2, ...)：相当于proc.call()，这个操作符不可重定义<br/>
+            <br/><hr/><br/>
+            <h4>Ⅲ 数据类型</h4>
+            <h5>&emsp;1. 编码：支持unicode</h5>
+            &emsp;&emsp;a. 脚本编码：决定字面量字符串对象编码的信息，与脚本的字符编码一致<br/>
+            &emsp;&emsp;b. 内部编码：从外部获取的数据在程序中如何处理的信息<br/>
+            &emsp;&emsp;c. 外部编码：外部输出时与编码相关的信息<br/>
+            <h5>&emsp;2. 万物皆对象</h5>
+            &emsp;&emsp;a. 对象：表现数据的基本单位，所有的对象都有标识（Object ID）和字面值<br/>
+            &emsp;&emsp;&emsp;i. 字面值：数字、文本字符、正则表达式<br/>
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="cursor:default">
+                <table class="table">
+                  <thead>
+                      <tr>
+                        <td><b>字面量</b></td>
+                        <td><b>作用（括号内为10进制的值）</b></td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>123</td>
+                    <td>表示10进制整数</td></tr>
+                    <tr><td>0123</td>
+                    <td>表示8进制整数（83）</td></tr>
+                    <tr><td>0o123</td>
+                    <td>表示8进制整数（83）</td></tr>
+                    <tr><td>0d123</td>
+                    <td>表示10进制整数（123）</td></tr>
+                    <tr><td>0x123</td>
+                    <td>表示16进制整数（291）</td></tr>
+                    <tr><td>0b1111011</td>
+                    <td>表示2进制整数（123）</td></tr>
+                    <tr><td>123.45</td>
+                    <td>浮点小数</td></tr>
+                    <tr><td>1.23E+04</td>
+                    <td>浮点小数的指数表示法（1.23×10 的4次幂=12300.0）</td></tr>
+                    <tr><td>1.23E-04</td>
+                    <td>浮点小数的指数表示法（1.23×10 的-4次幂=0.000123）</td></tr>
+                    <tr><td>123r</td>
+                    <td>有理数的（123/1）</td></tr>
+                    <tr><td>123.45r</td>
+                    <td>有理数的123.45（12345/100=2469/20）</td></tr>
+                    <tr><td>123i</td>
+                    <td>虚数的123i</td></tr>
+                    <tr><td>123.45i</td>
+                    <td>虚数的123.45i</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+            &emsp;&emsp;&emsp;ii. 变量/常量（类/模块）通过储存对象的指向从而「引用」对象的字面值<br/>
+            &emsp;&emsp;&emsp;iii. 没有变量引用的对象会被GC回收<br/>
+            &emsp;&emsp;b. Numeric类与Symbol类本身不可改变<br/>
+            &emsp;&emsp;&emsp;i. 这两种类没有显式声明的New方法<br/>
+            &emsp;&emsp;&emsp;ii. 方法输出结果事实上是引用的改变<br/>
+            <h5>&emsp;3. 实例的隐式创建</h5>
+            &emsp;&emsp;a. 数字：数字不可简写，但可以加入下划线或其他识别符号<br/>
+            &emsp;&emsp;&nbsp;&nbsp;&nbsp;两个特殊值：Float类中的Inifity和NaN<br/>
+            &emsp;&emsp;b. 用""、''、//表示文本或文本模式<br/>
+            &emsp;&emsp;&emsp;i. ''只识别转义字符\'、\\，""识别所有转移字符以及行继续符<br/>
+            &emsp;&emsp;&emsp;ii. 转义字符<br/>
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="cursor:default">
+                <table class="table">
+                  <thead>
+                      <tr>
+                        <td><b>转义字符</b></td>
+                        <td><b>意义</b></td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr><td>\x</td>
+                      <td>等价于x本身，x是除下述字符外的所有字符</td></tr>
+                      <tr><td>\a</td>
+                      <td>BEL字符，等价于\C-g或007</td></tr>
+                      <tr><td>\b</td>
+                      <td>退格符，等价于\C-h或010</td></tr>
+                      <tr><td>\e</td>
+                      <td>ESC字符，等价于\033</td></tr>
+                      <tr><td>\f</td>
+                      <td>换页符，等价于\C-l或014</td></tr>
+                      <tr><td>\n</td>
+                      <td>换行符，等价于\C-j或012</td></tr>
+                      <tr><td>\r</td>
+                      <td>回车符，等价于\C-m或015</td></tr>
+                      <tr><td>\s</td>
+                      <td>空格符</td></tr>
+                      <tr><td>\t</td>
+                      <td>水平制表符，等价于\C-i或011</td></tr>
+                      <tr><td>\v</td>
+                      <td>垂直制表符，等价于\C-k或\013</td></tr>
+                      <tr><td>\unnnn</td>
+                      <td>Unicode码点，不省略的十六进制数（0~10FFFF）</td></tr>
+                      <tr><td>\u{}</td>
+                      <td>Unicode码点，可省略的十六进制四位数，可输入多个</td></tr>
+                      <tr><td>\xnn</td>
+                      <td>一个字节，可省略的省略的十六进制二位数</td></tr>
+                      <tr><td>\nnn</td>
+                      <td>可省略的八进制进制三位数（000~377）</td></tr>
+                      <tr><td>\C-xor\cx</td>
+                      <td>即Ctrl+X组合键对应的字符</td></tr>
+                      <tr><td>\M-x</td>
+                      <td>即Alt+X组合键对应的字符</td></tr>
+                      <tr><td>\M-\C-x</td>
+                      <td>替换成Ctrl+Alt+X组合键对应的字符</td></tr>
+                      <tr><td>\eol</td>
+                      <td>行终止符</td></tr>
+                      <tr><td>#{}</td>
+                      <td>内插表达式</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+            &emsp;&emsp;&emsp;iii. 正则表达式的模式匹配<br/>
+            &emsp;&emsp;&emsp;&emsp;1) /^ABC$/：匹配行首/行尾<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/\AABC\z/:匹配字符串首/尾<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/ABC\Z/：当最后一个字符是\n时忽略而考察前一个字符<br/>
+            &emsp;&emsp;&emsp;&emsp;2) /[ABC]/:A，B，C中的任何一个，与顺序无关<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/[A-Z]/：从A~Z中的任何一个<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/[A-Za-z_-]/：从-、_、A~Z、a~z中的任何一个<br/>
+            &emsp;&emsp;&emsp;&emsp;3) /[^ABC]/：A，B，C以外的字符<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/[^A-Za-z]/：英文字母以外的字符<br/>
+            &emsp;&emsp;&emsp;&emsp;4) /\p{Han}/：匹配汉字<br/>
+            &emsp;&emsp;&emsp;&emsp;5) /A.C/：匹配AC，中间任意字符<br/>
+            &emsp;&emsp;&emsp;&emsp;6) /\s\d\w\^\$\[/：匹配空白，任意数字，任意英文，^，$，[<br/>
+            &emsp;&emsp;&emsp;&emsp;7) /A*BC/：匹配BC， ABC， AABC，……<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/A+BC/：匹配ABC， AABC，……<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/(AB)+c/：匹配ABC，ABABC，……<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;以上两种匹配会尽可能多地匹配字符（贪婪匹配）<br/>
+            &emsp;&emsp;&emsp;&emsp;8) /A*?BC/：匹配BC， ABC， AABC，……<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/A+?BC/：匹配ABC， AABC，……<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;以上两种匹配会尽可能少地匹配字符（懒惰匹配）<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/A.+?B/ =~ "ABCDABCDABCD"<br/>
+            &emsp;&emsp;&emsp;&emsp;9) /A?BC/：匹配BC， ABC<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/A{3}BC/：匹配AAABC<br/>
+            &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;/A{2, 4}BC/：匹配AABC，AAABC，AAAABC<br/>
+            &emsp;&emsp;&emsp;&emsp;10) /(ABC|BCA)DEF/：在若干个候补中选择一个<br/>
+            &emsp;&emsp;c. 用分界符+()/[]/{}/<>/||/!!/@@/%%/$$/--/__等创建文本<br/>
+            &emsp;&emsp;&emsp;i. %Q：双引号字符串，%q：单引号字符串<br/>
+            &emsp;&emsp;&emsp;ii. %w：字符串数组，%i：符号数组<br/>
+            &emsp;&emsp;&emsp;iii. %x：shell命令，相当于反引号<br/>
+            &emsp;&emsp;&emsp;iv. %r：正则表达式<br/>
+            &emsp;&emsp;d. Here Document：<< HERE ~ (单独一行)HERE<br/>
+            &emsp;&emsp;&emsp;i. <<：分辨空格<br/>
+            &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;<<-：不分辨结束标志符的前导空白<br/>
+            &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;<<~：不分辨一切空白（便于缩进）<br/>
+            &emsp;&emsp;&emsp;ii. HERE可是任意标识符<br/>
+            &emsp;&emsp;&emsp;&emsp;1) 前一个标识符使用'Here'可以不使用转义字符，且可以缩进<br/>
+            &emsp;&emsp;&emsp;&emsp;2) 前一个标识符使用"Here"与Here一致，但标识符可使用空格<br/>
+            &emsp;&emsp;&emsp;iii. 可以用多个Here Document并与普通字符串混用<br/>
+            &emsp;&emsp;e. shell命令：反引号``中的命令传递给 Kernel::`，返回结果字符串<br/>
+            &emsp;&emsp;&nbsp;&nbsp;&nbsp;?n：表示单字面量"n"，n可以为转义字符<br/>
+            &emsp;&emsp;f. 表达式表示对象：<br/>
+            &emsp;&emsp;&emsp;i. [y_1, y_2]表示数组{x_1: y_1}/{x_2 => y_2}表示散列<br/>
+            &emsp;&emsp;&emsp;&emsp;1) x_1为省略:的符号<br/>
+            &emsp;&emsp;&emsp;&emsp;2) x_2与y可为数字，表达式，字符串，范围，符号<br/>
+            &emsp;&emsp;&emsp;ii. x..y/x...y表示一个Range类实例<br/>
+            &emsp;&emsp;&emsp;iii. :sym/:"sym"/:'sym'表示一个Symbol类实例<br/>
+            <h5>&emsp;4. 变量的种类</h5>
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="cursor:default">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <td><b>名称</b></td>
+                      <td><b>命名规则</b></td>
+                      <td><b>作用域</b></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>局部变量</td>
+                    <td>下划线/小写字母开头</td>
+                    <td>当前文件</td></tr>
+                    <tr><td>全局变量</td>
+                    <td>以$开头</td>
+                    <td>整个程序</td></tr>
+                    <tr><td>实例变量</td>
+                    <td>以@开头</td>
+                    <td>同一个类</td></tr>
+                    <tr><td>类变量</td>
+                    <td>以@@开头</td>
+                    <td>同一个实例</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+            &emsp;&emsp;a. 除类变量（默认抛出NameError），其他已存在但未被赋值的变量默认为nil<br/>
+            &emsp;&emsp;b. 块的变量访问<br/>
+            &emsp;&emsp;&emsp;i. 块外部的局部变量可以在内部使用并赋值<br/>
+            &emsp;&emsp;&emsp;ii. 块内可以绑定外部方法的参数并实现闭包，方法只能绑定self<br/>
+            &emsp;&emsp;&emsp;iii. 块中定义的局部变量不可以在外部访问，如有同名则视为两个变量<br/>
+            &emsp;&emsp;c. 伪变量<br/>
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="cursor:default">
+                <table class="table">
+                  <thead>
+                      <tr>
+                        <td><b>变量名</b></td>
+                        <td><b>内容</b></td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>self</td>
+                    <td>默认的接收者</td></tr>
+                    <tr><td>nil、true、false</td>
+                    <td>单例类对象，ID分别为8、20、0</td></tr>
+                    <tr><td>__FILE__</td>
+                    <td>执行中的 Ruby 脚本的文件名</td></tr>
+                    <tr><td>__LINE__</td>
+                    <td>执行中的 Ruby 脚本的行编号</td></tr>
+                    <tr><td>__ENCODING__</td>
+                    <td>脚本的编码</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+            &emsp;&emsp;d. 预定义变量<br/>
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="cursor:default">
+                <table class="table">
+                  <thead>
+                      <tr>
+                        <td><b>变量名</b></td>
+                        <td><b>内容</b></td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>$_</td>
+                    <td>gets 方法最后读取的字符串</td></tr>
+                    <tr><td>$&</td>
+                    <td>最后一次模式匹配后得到的字符串</td></tr>
+                    <tr><td>$~</td>
+                    <td>最后一次模式匹配相关的信息</td></tr>
+                    <tr><td>`$``</td>
+                    <td>最后一次模式匹配中匹配部分之前的字符串</td></tr>
+                    <tr><td>$'</td>
+                    <td>最后一次模式匹配中匹配部分之后的字符串</td></tr>
+                    <tr><td>$+</td>
+                    <td>最后一次模式匹配中最后一个 () 对应的字符串</td></tr>
+                    <tr><td>$1、$2……</td>
+                    <td>最后一次模式匹配中 () 匹配的字符串（第 n 个 () 对应 $n）</td></tr>
+                    <tr><td>$?</td>
+                    <td>最后执行完毕的子进程的状态</td></tr>
+                    <tr><td>$!</td>
+                    <td>最后发生的异常的相关信息</td></tr>
+                    <tr><td>$@</td>
+                    <td>最后发生的异常的相关位置信息</td></tr>
+                    <tr><td>$SAFE</td>
+                    <td>安全级别（默认为 0）</td></tr>
+                    <tr><td>$/</td>
+                    <td>输入数据的分隔符（默认为 "\n"）</td></tr>
+                    <tr><td>$\</td>
+                    <td>输出数据的分隔符（默认为 nil）</td></tr>
+                    <tr><td>$,</td>
+                    <td>Array#join 的默认分割字符串（默认为 nil）</td></tr>
+                    <tr><td>$;</td>
+                    <td>String#split 的默认分割字符串（默认为 nil）</td></tr>
+                    <tr><td>$.</td>
+                    <td>最后读取的文件的行号</td></tr>
+                    <tr><td>$<</td>
+                    <td>ARGF 的别名</td></tr>
+                    <tr><td>$></td>
+                    <td>print、puts、p 等的默认输出位置（默认为 STDOUT）</td></tr>
+                    <tr><td>$0</td>
+                    <td>$PROGRAM_NAME 的别名</td></tr>
+                    <tr><td>$*</td>
+                    <td>ARGV 的别名</td></tr>
+                    <tr><td>$$</td>
+                    <td>当前执行中的 Ruby 的进程 ID</td></tr>
+                    <tr><td>$:</td>
+                    <td>$LOAD_PATH 的别名</td></tr>
+                    <tr><td>$"</td>
+                    <td>$LOADED_FEATURES 的别名</td></tr>
+                    <tr><td>$DEBUG</td>
+                    <td>指定 debug 模式的标识（默认为 nil）</td></tr>
+                    <tr><td>$FILENAME</td>
+                    <td>ARGF 当前在读取的文件名</td></tr>
+                    <tr><td>$LOAD_PATH</td>
+                    <td>执行 require 读取文件时搜索的目录名数组</td></tr>
+                    <tr><td>$stdin</td>
+                    <td>标准输入（默认为 STDIN）</td></tr>
+                    <tr><td>$stdout</td>
+                    <td>标准输出（默认为 STDOUT）</td></tr>
+                    <tr><td>$stderr</td>
+                    <td>标准错误输出（默认为 STDERR）</td></tr>
+                    <tr><td>$VERBOSE</td>
+                    <td>指定冗长模式的标识（默认为 nil）</td></tr>
+                    <tr><td>$PROGRAM_NAME</td>
+                    <td>当前执行中的 Ruby 脚本的别名</td></tr>
+                    <tr><td>$LOADED_FEATURES</td>
+                    <td>require 读取的类库名一览表</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+            &emsp;&emsp;e. 环境变量<br/>
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="cursor:default">
+                <table class="table">
+                  <thead>
+                      <tr>
+                        <td><b>变量名</b></td>
+                        <td><b>内容</b></td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>RUBYLIB</td>
+                    <td>追加到预定义变量 $LOAD_PATH 中的目录名（各目录间用 : 分隔）</td></tr>
+                    <tr><td>RUBYOPT</td>
+                    <td>启动 Ruby 时的默认选项（RUBYOPT = "-U -v" 等）</td></tr>
+                    <tr><td>RUBYPATH</td>
+                    <td>-S 选项指定的、解析器启动时脚本的搜索路径</td></tr>
+                    <tr><td>PATH</td>
+                    <td>外部命令的搜索路径</td></tr>
+                    <tr><td>HOME</td>
+                    <td>DIR.chdir 方法的默认移动位置</td></tr>
+                    <tr><td>LOGDIR</td>
+                    <td>HOME 没有时的 DIR.chdir 方法的默认移动位置</td></tr>
+                    <tr><td>LC_ALL、LC_CTYPE、LANG</td>
+                    <td>决定默认编码的本地信息（平台依赖）</td></tr>
+                    <tr><td>RUBYSHELL、COMSPEC</td>
+                    <td>执行外部命令时，shell 需要使用的解析器路径（平台依赖）</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+            <h5>&emsp;5. 常量：多次引用固定不变的值</h5>
+            &emsp;&emsp;a. 以大写字母开头，再赋值会发出警告（程序不会中止）<br/>
+            &emsp;&emsp;b. 一般在类内或模块内定义，用::运算符引用<br/>
+            &emsp;&emsp;c. 预定义常量<br/>
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="cursor:default">
+                <table class="table">
+                  <thead>
+                      <tr>
+                        <td><b>常量名</b></td>
+                        <td><b>内容</b></td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>ARGF</td>
+                    <td>参数，或者从标准输入得到的虚拟文件对象</td></tr>
+                    <tr><td>ARGV</td>
+                    <td>命令行参数数组</td></tr>
+                    <tr><td>DATA</td>
+                    <td>访问 __END__ 以后数据的文件对象</td></tr>
+                    <tr><td>ENV</td>
+                    <td>环境变量</td></tr>
+                    <tr><td>RUBY_COPYRIGHT</td>
+                    <td>版权信息</td></tr>
+                    <tr><td>RUBY_DESCRIPTION</td>
+                    <td>ruby -v 显示的版本信息</td></tr>
+                    <tr><td>RUBY_ENGINE</td>
+                    <td>Ruby 的处理引擎</td></tr>
+                    <tr><td>RUBY_PATCHLEVEL</td>
+                    <td>Ruby 的补丁级别</td></tr>
+                    <tr><td>RUBY_PLATFORM</td>
+                    <td>运行环境的信息（OS、CPU）</td></tr>
+                    <tr><td>RUBY_RELEASE_DATE</td>
+                    <td>Ruby 的发布日期</td></tr>
+                    <tr><td>RUBY_VERSION</td>
+                    <td>Ruby 的版本</td></tr>
+                    <tr><td>STDERR</td>
+                    <td>标准错误输出</td></tr>
+                    <tr><td>STDIN</td>
+                    <td>标准输入</td></tr>
+                    <tr><td>STDOUT</td>
+                    <td>标准输出</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+            <h5>&emsp;6. 保留字：不可用于局部变量/常量，但可以用于其他变量/方法名</h5>
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="cursor:default">
+                <table class="table">
+                  <thead>
+                    <tr><td>BEGIN</td>
+                    <td>do</td>
+                    <td>next</td>
+                    <td>then</td>
+                    <td>break</td>
+                    <td>FALSE</td>
+                    <td>rescue</td>
+                    <td>when</td></tr>
+                  </thead>
+                  <tbody>
+                      <tr><td>END</td>
+                      <td>else</td>
+                      <td>nil</td>
+                      <td>TRUE</td>
+                      <td>case</td>
+                      <td>for</td>
+                      <td>retry</td>
+                      <td>while</td></tr>
+                      <tr><td>alias</td>
+                      <td>elsif</td>
+                      <td>not</td>
+                      <td>undef</td>
+                      <td>class</td>
+                      <td>if</td>
+                      <td>return</td>
+                      <td>while</td></tr>
+                      <tr><td>and</td>
+                      <td>end</td>
+                      <td>or</td>
+                      <td>unless</td>
+                      <td>def</td>
+                      <td>in</td>
+                      <td>self</td>
+                      <td>__FILE__</td></tr>
+                      <tr><td>begin</td>
+                      <td>ensure</td>
+                      <td>redo</td>
+                      <td>until</td>
+                      <td>defined?</td>
+                      <td>module</td>
+                      <td>super</td>
+                      <td>__LINE_</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+            <br/><hr/><br/>
+            <h4>Ⅳ 方法与类</h4>
+            <h5>&emsp;1. 方法分类</h5>
+            &emsp;&emsp;a. 实例方法：以特定对象种类为接收者的方法</br>
+            &emsp;&emsp;b. 类方法：以类为接收者的方法，可以用::运算符代替点运算符</br>
+            &emsp;&emsp;&nbsp;&nbsp;&nbsp;类方法包括class类的实例方法，也包括类对象的单例方法</br>
+            &emsp;&emsp;c. 函数方法：可以省略接收者的方法</br>
+            <h5>&emsp;2. 类与模块</h5>
+            &emsp;&emsp;a. 所有类都是Class类的对象</br>
+            &emsp;&emsp;&emsp;i. BasicObject > Object > Module > Class</br>
+            &emsp;&emsp;&emsp;ii. 模块是Module类的实例，自定义类是Class类的实例</br>
+            &emsp;&emsp;&emsp;iii. 自定义类也是Object类的子类，自定义类的实例是Class类的实例的实例</br>
+            &emsp;&emsp;b. 模块不能拥有实例，不能被继承</br>
+            &emsp;&emsp;c. 模块提供的命名空间：不同模块的同名常量、方法被认为是不同的对象</br>
+            &emsp;&emsp;&emsp;i. 未使用include时，使用模块名./::(方法/常量或方法)来调用</br>
+            &emsp;&emsp;&emsp;ii. 调用模块方法时，依次在本方法，模块，超类的顺序寻找第一个该方法调用</br>
+            <h5>&emsp;3. 运算符：大多都是实例方法的语法糖</h5>
+            &emsp;&emsp;a. 不能重定义的运算符：</br>
+            &emsp;&emsp;&emsp;i. =, ., ::, ?:</br>
+            &emsp;&emsp;&emsp;&emsp;1) ./::运算符形式（一般括号可以缺省）</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;a) 方法可以用./::来调用</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;b) 常量只能用::来调用</br>
+            &emsp;&emsp;&emsp;&emsp;2) 赋值运算符</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;a) 「变量名 = 对象」：将对象赋值给变量</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;i) 允许并行赋值、连环赋值</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(1) *操作符表示将数组拆分为多个元素</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(2) 左值用圆括号可以当作并行赋值</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ii) 对象部分为变量时，会传递变量所指对象的标识</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;b) 二元运算符 op 都可以简写（伪操作符）</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;i) var op= val 等价于 var = var op val</br>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;ii) 读写器也可以用简写方式读写</br>
+            &emsp;&emsp;&emsp;ii. 范围对象：.., ...：当两个参数为条件式或循环时会创建flip-flop布尔表达式</br>
+            &emsp;&emsp;&emsp;iii. 内建语言：not, and, or, &&, ||</br>
+            &emsp;&emsp;&emsp;&emsp;1) 具有短路特性</br>
+            &emsp;&emsp;&emsp;&emsp;2) 在运算逻辑上用英文形式，在布尔计算上利用</br>
+            &emsp;&emsp;b. 其他运算符：</br>
+            &emsp;&emsp;&emsp;i. defined?obj：返回是否被定义</br>
+            &emsp;&emsp;&emsp;ii. !=/!~：会被自动定义为==/=~的反义</br>
+            <h5>&emsp;4. 方法声明时的参数规则</h5>
+            &emsp;&emsp;a. 省略参数：(x_1, x_2 = y_2, x_3 = y_3, ...)</br>
+            &emsp;&emsp;&emsp;i. 指定默认参数的情况，所有带默认值的参数必须连续出现</br>
+            &emsp;&emsp;&emsp;ii. method(*args)：将参数封装为数组</br>
+            &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;(arg_1, *args, arg_2):最多出现一次，可以放在中间</br>
+            &emsp;&emsp;b. 关键字参数：(x_1, x_2: y_2, x_3: y_3, ...)</br>
+            &emsp;&emsp;&emsp;i. 不同参数的位置可以改变，可以和普通参数同时使用</br>
+            &emsp;&emsp;&emsp;ii. 定义不指定默认值的时候，y_n可以留空</br>
+            &emsp;&emsp;&emsp;iii. 可以用**var来保存未定义的参数，以散列的形式保存</br>
+            &emsp;&emsp;c. 块作为参数的传递</br>
+            &emsp;&emsp;&emsp;i. 当块作为Proc对象被传递时，作为普通参数</br>
+            &emsp;&emsp;&emsp;ii. &block将显式传入的块封装为Proc对象，置于所有参数最后面</br>
+            &emsp;&emsp;&emsp;iii. &block将符号转化为块：&method <=> Proc.new{|arg| arg.method}</br>
+            <h5>&emsp;5. 单例方法</h5>
+            &emsp;&emsp;a. 类方法是class类某个实例的单例方法</br>
+            &emsp;&emsp;&nbsp;&nbsp;&nbsp;单例类是其他类某个实例的单例方法，不能生成新的实例</br>
+            &emsp;&emsp;b. 类方法中画下划线的两个同时可以定义单例类</br>
+            &emsp;&emsp;c. Numeric类与Symbol类本身不看做对象引用，没有单例方法</br>
+            <br/><hr/><br/>
+            <h4>Ⅴ 环境指令</h4>
+            <h5>&emsp;1. Ruby指令：ruby [option] [--] file [arguments]</h5>
+            &emsp;&emsp;a. 命令行选项[options]<br/>
+            <div class="row">
+              <div class="col-lg-1"></div>
+              <div class="col-lg-10" style="cursor:default">
+                <table class="table">
+                  <thead>
+                      <tr>
+                        <td><b>选项</b></td>
+                        <td><b>意义</b></td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>-0octal</td>
+                    <td>用 8 进制指定 IO.gets 等识别的换行符</td></tr>
+                    <tr><td>-a</td>
+                    <td>指定为自动分割模式 ( 与 -n 或者 -p 选项一起使用时则将 $F 设为 $_.split($;)）</td></tr>
+                    <tr><td>-c</td>
+                    <td>只检查脚本的语法</td></tr>
+                    <tr><td>-Cdirectory</td>
+                    <td>在脚本执行前，先移动到 directory 目录下</td></tr>
+                    <tr><td>-d、--debug</td>
+                    <td>使用 debug 模式（将 $DEBUG 设为 true）</td></tr>
+                    <tr><td>-e 'command'</td>
+                    <td>通过 command 指定一行代码的程序。本选项可指定多个</td></tr>
+                    <tr><td>-Eex[:in]、--encoding=ex[:in]</td>
+                    <td>指定默认的外部编码（ex）以及默认内部编码（in）</td></tr>
+                    <tr><td>-Fpattern</td>
+                    <td>指定 String#split 方法使用的默认分隔符（$;）</td></tr>
+                    <tr><td>-i[extension]</td>
+                    <td>以替换形式编辑 ARGV 文件（指定 extension 时则会生成备份文件）</td></tr>
+                    <tr><td>-Idirectory</td>
+                    <td>指定追加到 $LOAD_PATH 的目录。本选项可指定多个</td></tr>
+                    <tr><td>-l</td>
+                    <td>删除 -n 或者 -p 选项中的 $_ 的换行符</td></tr>
+                    <tr><td>-n</td>
+                    <td>是脚本整体被 'while gets(); ... end' 包围（将 gets() 的结果设定到 $_ 中）</td></tr>
+                    <tr><td>-p</td>
+                    <td>在 -n 选项的基础上，在每个循环结束时输出 $_</td></tr>
+                    <tr><td>-rlibrary</td>
+                    <td>在执行脚本前通过 require 引用 library</td></tr>
+                    <tr><td>-s</td>
+                    <td>要使脚本解析标志（flag）的功能有效（'ruby -s script -abc'，则 $abc 为 true）</td></tr>
+                    <tr><td>-S</td>
+                    <td>从环境变量 PATH 开始搜索可执行的脚本</td></tr>
+                    <tr><td>-Tlevel</td>
+                    <td>指定不纯度检查模式</td></tr>
+                    <tr><td>-U</td>
+                    <td>将内部编码的默认值（Encoding.default_internal）设为 UTF-8</td></tr>
+                    <tr><td>-v、--verbose</td>
+                    <td>显示版本号，冗长模式设定为有效（$VERBOSE 设定为 true）</td></tr>
+                    <tr><td>-w</td>
+                    <td>冗长模式设定为有效</td></tr>
+                    <tr><td>-Wlevel</td>
+                    <td>指定冗长模式的级别 [0= 不输出警告，1= 只输出重要警告，2= 输出全部警告（默认值）]</td></tr>
+                    <tr><td>-xdirectory</td>
+                    <td>忽略执行脚本中 #!ruby 之前的内容</td></tr>
+                    <tr><td>--copyright</td>
+                    <td>显示版权信息</td></tr>
+                    <tr><td>--enable-feature[, ...]</td>
+                    <td>使 feature 有效</td></tr>
+                    <tr><td>--disable=feature[, ...]</td>
+                    <td>使 feature 无效</td></tr>
+                    <tr><td>--external-encoding=encoding</td>
+                    <td>指定默认的外部编码</td></tr>
+                    <tr><td>--internal-encoding=encoding</td>
+                    <td>指定默认的内部编码</td></tr>
+                    <tr><td>--version</td>
+                    <td>显示版本信息</td></tr>
+                    <tr><td>--help</td>
+                    <td>显示帮助信息</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-1"></div>
+            </div>
+            &emsp;&emsp;&nbsp;&nbsp;&nbsp;--enable、--disable 选项可指定的功能名<br/>
+            <div class="row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-6" style="cursor:default">
+                <table class="table">
+                  <thead>
+                      <tr>
+                        <td><b>功能名</b></td>
+                        <td><b>意义</b></td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>gems</td>
+                    <td>RubyGems 是否有效（默认有效）</td></tr>
+                    <tr><td>rubyopt</td>
+                    <td>是否引用环境变量RUBYOPT（默认引用）</td></tr>
+                    <tr><td>all</td>
+                    <td>上述功能是否全部有效</td></tr>
+                    <tr><td></td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-3"></div>
+            </div>
+            &emsp;&emsp;b. 当file以连字符开头时，需要输入--<br/>
+            &emsp;&emsp;c. < in.txt/> out.txt：定向输入/输出流<br/>
+            &emsp;&emsp;d. h.rb：首行存在shebang注释时可用<br/>
+            <h5>&emsp;2. RubyGems指令：gem [option]</h5>
+            <div class="row">
+              <div class="col-lg-2"></div>
+              <div class="col-lg-8" style="cursor:default">
+                <table class="table">
+                  <thead>
+                      <tr>
+                        <td><b>选项</b></td>
+                        <td><b>意义</b></td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>build</td>
+                    <td>根据 gemspec 创建 gem</td></tr>
+                    <tr><td>cert</td>
+                    <td>管理、签署 RubyGems 的许可证时使用</td></tr>
+                    <tr><td>check</td>
+                    <td>检查 gem</td></tr>
+                    <tr><td>cleanup</td>
+                    <td>整理已安装的旧版本的 gem</td></tr>
+                    <tr><td>contents</td>
+                    <td>显示已安装 gem 的内容</td></tr>
+                    <tr><td>dependency</td>
+                    <td>显示已安装 gem 的依赖关系</td></tr>
+                    <tr><td>environment</td>
+                    <td>显示 RubyGems、Ruby 等相关的环境信息</td></tr>
+                    <tr><td>fetch</td>
+                    <td>把 gem 文件下载到本地目录，但不安装</td></tr>
+                    <tr><td>generate_index</td>
+                    <td>创建 gem 服务器所需的索引文件</td></tr>
+                    <tr><td>help</td>
+                    <td>显示 gem 命令的帮助说明</td></tr>
+                    <tr><td>install</td>
+                    <td>安装 gem</td></tr>
+                    <tr><td>list</td>
+                    <td>显示 gem 的一览表</td></tr>
+                    <tr><td>lock</td>
+                    <td>锁定 gem 版本，并输出锁定后的 gem 列表</td></tr>
+                    <tr><td>mirror</td>
+                    <td>创建 gem 仓库的镜像</td></tr>
+                    <tr><td>outdated</td>
+                    <td>显示所有需要更新的 gem 列表</td></tr>
+                    <tr><td>pristine</td>
+                    <td>从 gem 缓存中获取已安装的 gem，并将其恢复为初始状态</td></tr>
+                    <tr><td>query</td>
+                    <td>搜索本地或者远程仓库的 gem 信息</td></tr>
+                    <tr><td>rdoc</td>
+                    <td>生成已安装的 gem 的 RDoc 文件</td></tr>
+                    <tr><td>search</td>
+                    <td>显示名字包含指定字符串的gem</td></tr>
+                    <tr><td>server</td>
+                    <td>启动 HTTP 服务器，用于管理 gem 的文档及仓库</td></tr>
+                    <tr><td>sources</td>
+                    <td>管理搜索 gem 时所需的 RubyGems 的源以及缓存</td></tr>
+                    <tr><td>specification</td>
+                    <td>以 yaml 形式显示 gem 的详细信息</td></tr>
+                    <tr><td>stale</td>
+                    <td>按最后访问的时间顺序显示 gem 的一览表</td></tr>
+                    <tr><td>uninstall</td>
+                    <td>从本地卸载 gem</td></tr>
+                    <tr><td>unpack</td>
+                    <td>在本地目录解压已安装的 gem</td></tr>
+                    <tr><td>update</td>
+                    <td>更新指定的 gem（或者全部 gem）</td></tr>
+                    <tr><td>which</td>
+                    <td>显示读取 gem 时引用的类库</td></tr>
+                  </tbody>
+              </table>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+            <h5>&emsp;3. irb指令：进入irb(main):001:0></h5>
+            <h5>&emsp;4. 错误信息显示格式</h5>
+            &emsp;&emsp;&emsp;文件名: 行号:in `方法名': 错误信息（异常类名）<br/>
+            &emsp;&emsp;&emsp;　　　　from 文件名: 行号:in 方法名<br/>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" style="cursor:default">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://twitter.com/ShiinaHiiragi" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/ShiinaHiiragi" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Ichinoe 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
