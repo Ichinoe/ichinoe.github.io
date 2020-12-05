@@ -75,7 +75,7 @@ blockquote {
 
 .caption {
   font-size: 14px;
-  font-style: italic;
+  font-weight: 400;
   display: block;
   margin: 0;
   padding: 10px;
