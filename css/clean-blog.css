@@ -434,7 +434,7 @@ footer .copyright {
 #ruby {
   font-size: 15px;
   font-weight: 320;
-  font-family: "Source Code Pro", "Open Sans";
+  font-family: "Source Code Pro", "Consolas", monospace;
 }
 
 #ruby code {
@@ -446,18 +446,18 @@ footer .copyright {
 #ruby h4 {
   font-size: 20px;
   font-weight: 600;
-  font-family: "Source Code Pro", "Open Sans";
+  font-family: "Source Code Pro";
 }
 
 #ruby h5 {
   font-size: 18px;
   font-weight: 400;
   margin-top: 10px;
-  font-family: "Source Code Pro", "Open Sans";
+  font-family: "Source Code Pro";
 }
 
 #ruby h6 {
   font-size: 16px;
   font-weight: 400;
-  font-family: "Open Sans";
+  font-family: "Source Code Pro";
 }
