@@ -11,6 +11,11 @@ body {
   font-family: 'Open Sans', Arial, sans-serif;
 }
 
+@font-face {
+	font-family: Source Code Pro;
+	src: url('Source\ Code\ Pro.ttf');
+}
+
 p {
   line-height: 1.5;
   margin: 15px 0;
@@ -434,30 +439,30 @@ footer .copyright {
 #ruby {
   font-size: 15px;
   font-weight: 320;
-  font-family: "Source Code Pro", monospace, "Open Sans", sans-serif;
+  font-family: "Source Code Pro", "Open Sans", sans-serif;
 }
 
 #ruby code {
   font-size: 16px;
   font-weight: 400;
-  font-family: "Source Code Pro", monospace, "Open Sans", sans-serif;
+  font-family: "Source Code Pro", "Open Sans", sans-serif;
 }
 
 #ruby h4 {
   font-size: 20px;
   font-weight: 600;
-  font-family: "Source Code Pro", monospace, "Open Sans", sans-serif;
+  font-family: "Source Code Pro", "Open Sans", sans-serif;
 }
 
 #ruby h5 {
   font-size: 18px;
   font-weight: 400;
   margin-top: 10px;
-  font-family: "Source Code Pro", monospace, "Open Sans", sans-serif;
+  font-family: "Source Code Pro", "Open Sans", sans-serif;
 }
 
 #ruby p {
   font-size: 16px;
   font-weight: 400;
-  font-family: "Source Code Pro", monospace, "Open Sans", sans-serif;
+  font-family: "Source Code Pro", "Open Sans", sans-serif;
 }
