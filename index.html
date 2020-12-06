@@ -72,6 +72,27 @@
 
     <!-- Main Content -->
     <div class="container">
+
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <p id="hitokoto_text" align="center" style="font-weight: 400; font-size: 18px;"> Loading ... </p>
+          <p id="hitokoto_from" align="right" style="margin-top: -10px; font-weight: 400;">  </p>
+          <script>
+            fetch('https://v1.hitokoto.cn/?c=i')
+              .then(response => response.json())
+              .then(data => {
+                const hitokoto = document.getElementById('hitokoto_text')
+                const hitofrom = document.getElementById('hitokoto_from')
+                hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+                hitofrom.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+                hitokoto.innerText = data.hitokoto
+                hitofrom.innerText = '『' + data.from + '』'
+              })
+              .catch(console.error)
+          </script>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
 
