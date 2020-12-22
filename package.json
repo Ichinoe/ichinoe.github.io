@@ -1,7 +1,7 @@
 {
-    "title": "Clean Blog",
-    "name": "startbootstrap-clean-blog",
-    "version": "5.0.10",
+    "title": "Ichinoe",
+    "name": "ichinoe",
+    "version": "2.3",
     "scripts": {
         "start": "node_modules/.bin/gulp watch"
     },
