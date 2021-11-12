@@ -1,0 +1,25 @@
+#note {
+  font-size: 15px;
+  font-weight: 320;
+}
+
+#note code {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#note h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#note h5 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+#note p {
+  font-size: 16px;
+  font-weight: 400;
+}

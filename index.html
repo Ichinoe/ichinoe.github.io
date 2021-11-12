@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title> Domain - Ichinoe </title>
+
+  <!-- Favicons -->
+  <link href="img/icon/meta_icon.png" rel="icon">
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,400,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"> Ichinoe </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"> Domain </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html"> About </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="status.html"> Status </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html"> Contact </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Post Header -->
+  <header class="masthead" style="background-image: url('img/header/domain.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1> Domain </h1>
+            <span class="subheading"> Ichinoe </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <!-- Main Content -->
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <p id="hitokoto_text" align="center" style="font-weight: 400; font-size: 18px;">
+            Loading ...
+          </p>
+          <p id="hitokoto_from" align="right" style="margin-top: -10px; font-weight: 400;"> </p>
+          <script>
+            fetch('https://v1.hitokoto.cn/?c=i')
+              .then(response => response.json())
+              .then(data => {
+                const hitokoto = document.getElementById('hitokoto_text')
+                const hitofrom = document.getElementById('hitokoto_from')
+                hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+                hitofrom.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+                hitokoto.innerText = data.hitokoto
+                hitofrom.innerText = '『' + data.from + '』'
+              })
+              .catch(console.error)
+          </script>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <div class="post-preview">
+            <a href="pages/211111.html">
+              <h2 class="post-title">
+                [Data] Textbook of Logic
+              </h2>
+              <p class="post-subtitle">
+                寄存部分逻辑学相关的教材 PDF 文件，方便在线预览。处于美观的设想，部分封面被削除。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Nov 11, 2021 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/210914.html">
+              <h2 class="post-title">
+                [Note] Syntax
+              </h2>
+              <p class="post-subtitle">
+                森罗万象的笔记，记录简单的全栈相关知识，内容随时更新，和 GitHub 对上了一点电波。
+                由于内容来自其他仓库，加载速度可能依照所在地域以及笔记体量有所不同。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Sept 14, 2021 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/210408.html">
+              <h2 class="post-title">
+                [Blog] Sakai
+              </h2>
+              <p class="post-subtitle">
+                这个人写下了指导他写作的基本准则，本来没有记录这个的打算，但是终于还是写下了。
+                希望了解这些的人，会期望从中得到启示；厌恶这一切的人，会想看看这人如何大逆不道，然后驳斥这离经叛道的胡言乱语。
+                但是，这到底也只是一个人毫无根据的呓语，请放过他吧。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Apr 8, 2021 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/210301.html">
+              <h2 class="post-title">
+                [Note] Mathematical Logic
+              </h2>
+              <p class="post-subtitle">
+                一个记录逻辑与形而上学相关的笔记本，主要以记录结论而不是推导过程为主。
+                内容包括基本的形式逻辑，形而上学和数理逻辑。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Mar 1, 2021 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/200913.html">
+              <h2 class="post-title">
+                [Beatmap] Rainbow Snow
+              </h2>
+              <p class="post-subtitle">
+                由 ななひら 和 nayuta 演唱的，塚越雄一朗作曲的作品。
+                由于出色的间奏旋律以及轻快的旋律，不知不觉就做了三个难度，都不是 TECH。
+                次难度以大量出现的低频率二连为主，无论是单双还是强双都能顺利地打下去。
+                主难度已经超过作图者的自身水平，所以不保证质量。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Sept 13, 2020 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/200819.html">
+              <h2 class="post-title">
+                [Note] 基础音乐理论笔记
+              </h2>
+              <p class="post-subtitle">
+                简单的音乐理论，包括少量编曲内容。话是这么说，事实上有些东西（尤其是爵士乐理论）学完之后两个小时内就忘光了。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Aug 19, 2020 </p>
+          </div>
+
+          <hr>
+
+
+          <div class="post-preview">
+            <a href="pages/200815.html">
+              <h2 class="post-title">
+                [Virtual] 魔术师从镜子里拿出万国旗
+              </h2>
+              <p class="post-subtitle">
+                无意识是指那些在通常情况下根本不会进入意识层面的东西，例如内心深处被压抑而无从意识到的秘密想法或恐惧。
+                注意：本故事并不属于主线构成，也不是以供人阅读为目的而写就的。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Aug 15, 2020 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/200730.html">
+              <h2 class="post-title">
+                [Skin] Ichinoe's Skin
+              </h2>
+              <p class="post-subtitle">
+                在没有使用过 PS 的前提下（其实还是用了），凑出了一套标准模式的皮肤。
+                主要使用蓝白两色，字体较细的风格，图标以简洁为主。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> July 30, 2020 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/200714.html">
+              <h2 class="post-title">
+                [Light] 红叶酒
+              </h2>
+              <p class="post-subtitle">
+                说来你可能不信，我不会打麻将。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> July 14, 2020 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/200708.html">
+              <h2 class="post-title">
+                [Virtual] 白扇
+              </h2>
+              <p class="post-subtitle">
+                并不是写的科幻。
+                注意：本故事并不属于主线构成，也不是以供人阅读为目的而写就的。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> July 8, 2020 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/200306.html">
+              <h2 class="post-title">
+                [Beatmap] DEEP BLUE TOWN へおいでよ
+              </h2>
+              <p class="post-subtitle">
+                纪念企划 iMarine Project 的 PV 配曲，用于很多 MMD 的背景乐中，但是我依然没有找到动作数据。
+                并不是以 TECH 的标准制作的图，大部分都是简单的五连，但不一定完全契合作品的本身节奏。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> May 6, 2020 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/200303.html">
+              <h2 class="post-title">
+                [MMD] あぴミク コレクション
+              </h2>
+              <p class="post-subtitle">
+                第一次学习 Ray 渲染（其实是第一次接触到 MMD），瑕疵颇多，穿模和布料的问题都很严重，而且在调饱和度和景深的方面热情过了头。另外，如果我不说，可能没人知道，画面里绝大部分的物质材质都调成了头发。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> May 3, 2020 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/191205.html">
+              <h2 class="post-title">
+                [Beatmap] 七つ一旋桜
+              </h2>
+              <p class="post-subtitle">
+                由同人社团「木制みゅーと」制作的和风电子，可能因为是个东方同人社团，所以怎么听都像同人曲。
+                Hollow Wings 亲自下场作过此图，但是和她不同，我只是简单地做成了跳图。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Dec 5, 2019 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/190611.html">
+              <h2 class="post-title">
+                [Light] 风神木
+              </h2>
+              <p class="post-subtitle">
+                有什么样的东西可以被自然地产生，想法，概念，抑或是能量呢……
+              </p>
+            </a>
+            <p class="post-meta" align="right"> June 11, 2019 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/180829.html">
+              <h2 class="post-title">
+                [RGSS] 東方月桜祭
+              </h2>
+              <p class="post-subtitle">
+                本来是计划制作一个不甚完整的东方二次同人故事，为此还把儚月抄读了两遍。
+                但是由于某些时机上的原因，现在这个企划已经无限期搁置了。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Aug 29, 2018 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/180817.html">
+              <h2 class="post-title">
+                [Note] 意象收集计划
+              </h2>
+              <p class="post-subtitle">
+                探索单个字词可以营造的意境，尝试将美感从构建好的文本中解构出来。
+                不只收集季语，但是季语占了相当一部分篇幅。
+                不限于汉字，汉字部分会从简体，繁体，日式简体中选取自己看着一个最顺眼的。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Aug 17, 2018 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/180710.html">
+              <h2 class="post-title">
+                [Light] 純きセラフ
+              </h2>
+              <p class="post-subtitle">
+                启发于机场与地下停车场天花板的产物。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> July 10, 2018 </p>
+          </div>
+
+          <hr>
+
+          <div class="post-preview">
+            <a href="pages/180101.html">
+              <h2 class="post-title">
+                [Novella] 七つ柊水光
+              </h2>
+              <p class="post-subtitle">
+                记录学生会和风纪委员会的小打小闹，并不是短篇。到目前为止还没有写完。
+                标题是同人社团「木制みゅーと」的专辑『神楽ノ舞』的一首曲子。
+              </p>
+            </a>
+            <p class="post-meta" align="right"> Jan 1, 2018 </p>
+          </div>
+
+          <hr>
+          
+          <!-- Pager -->
+          <!--
+          <div class="clearfix">
+            <a class="btn btn-primary float-left" href="#">&larr; Later</a>
+            <a class="btn btn-primary float-right" href="#">Earlier &rarr;</a>
+          </div>
+          -->
+        </div>
+      </div>
+    </div>
+  
+    <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://twitter.com/ShiinaHiiragi" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/ShiinaHiiragi" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Ichinoe 2020 - 2021</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Contact Form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
