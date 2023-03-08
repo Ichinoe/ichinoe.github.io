@@ -83,14 +83,14 @@
             fetch('https://v1.hitokoto.cn/?c=i')
               .then(response => response.json())
               .then(data => {
-                const hitokoto = document.getElementById('hitokoto_text')
-                const hitofrom = document.getElementById('hitokoto_from')
-                hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
-                hitofrom.href = 'https://hitokoto.cn/?uuid=' + data.uuid
-                hitokoto.innerText = data.hitokoto
-                hitofrom.innerText = '『' + data.from + '』'
+                const hitokoto = document.getElementById('hitokoto_text');
+                const hitofrom = document.getElementById('hitokoto_from');
+                hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid;
+                hitofrom.href = 'https://hitokoto.cn/?uuid=' + data.uuid;
+                hitokoto.innerText = data.hitokoto;
+                hitofrom.innerText = '『' + data.from + '』';
               })
-              .catch(console.error)
+              .catch(console.error);
           </script>
         </div>
       </div>
@@ -98,17 +98,52 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto" id="list-anchor">
           <script src="dir.js"></script>
+
+          <!-- Pager -->
+          <div class="clearfix" id="nav-buttons">
+            <a id="previous-page" class="btn btn-outline-secondary float-left" href="#">&larr; Later</a>
+            <a id="next-page" class="btn btn-outline-secondary float-right" href="#">Earlier &rarr;</a>
+          </div>
+
           <script>
+            const getQueryString = (name) => {
+                let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                let r = window.location.search.substr(1).match(reg);
+                if (r != null) {
+                  return unescape(r[2]);
+                }
+                return undefined;
+            }
+
             const convertDate = (dateString) => {
-              const monthName = ["Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
-              let yearString = dateString.slice(0, 4)
-              let month = Number(dateString.slice(4, 6))
-              let day = Number(dateString.slice(6, 8))
-              return `${monthName[month - 1]} ${day}, ${yearString}`
+              const monthName = ["Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+              let yearString = dateString.slice(0, 4);
+              let month = Number(dateString.slice(4, 6));
+              let day = Number(dateString.slice(6, 8));
+              return `${monthName[month - 1]} ${day}, ${yearString}`;
+            }
+
+            let pageNum = Number(getQueryString("page"));
+            const maxPerPage = 10;
+            const maxPage = Math.ceil(list.length / maxPerPage);
+            if (isNaN(pageNum) || pageNum < 1 || pageNum > maxPage) {
+              pageNum = 1;
+            }
+
+            const nav_buttons = document.querySelector("#nav-buttons");
+            const previous_page = document.querySelector("#previous-page");
+            const next_page = document.querySelector("#next-page");
+            previous_page.href=`./index.html?page=${pageNum - 1}`
+            next_page.href=`./index.html?page=${pageNum + 1}`
+
+            if (pageNum == 1) {
+              previous_page.style.display = "none";
+            } else if (pageNum == maxPage) {
+              next_page.style.display = "none";
             }
 
             listAnchor = document.querySelector("#list-anchor");
-            list.forEach((item) => {
+            list.slice(maxPerPage * pageNum - maxPerPage, maxPerPage * pageNum).forEach((item) => {
               const newItemLinkTitle = document.createElement("h2");
               const newItemLinkCaption = document.createElement("p");
               const newItemLink = document.createElement("a");
@@ -130,20 +165,14 @@
               newItemLink.append(newItemLinkCaption);
               newItem.append(newItemLink);
               newItem.append(newItemDate);
-              listAnchor.append(newItem);
-              listAnchor.append(newSplitLine);
+              listAnchor.insertBefore(newItem, nav_buttons);
+              listAnchor.insertBefore(newSplitLine, nav_buttons);
             });
           </script>
-
-          <!-- Pager -->
-          <div class="clearfix">
-            <a class="btn btn-outline-secondary float-left" href="#">&larr; Later</a>
-            <a class="btn btn-outline-secondary float-right" href="#">Earlier &rarr;</a>
-          </div>
         </div>
       </div>
     </div>
-  
+
     <hr>
 
   <!-- Footer -->
