@@ -97,125 +97,8 @@
 
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto" id="list-anchor">
+          <script src="dir.js"></script>
           <script>
-            const list = [
-              {
-                title: "[Virtual] ZOO",
-                caption: "这里是一系列在二〇二三年二月逐日完成的、风格各异的短篇故事集合，旨在以实验性的方式探究不同种类的故事风格。请注意：每篇故事之间没有任何关联。",
-                date: "20230201"
-              },
-              {
-                title: "[Blog] Extra",
-                caption: "杂文的集散地，暴论大量发生请注意。",
-                date: "20220812"
-              },
-              {
-                title: "[Blog] Vertex",
-                caption: "为了不可告人的原因牺牲了可读性。",
-                date: "20220130"
-              },
-              {
-                title: "[Data] Textbook of Logic",
-                caption: "寄存部分逻辑学相关的教材 PDF 文件，方便在线预览。出于美观的设想，部分封面被削除。",
-                date: "20211111"
-              },
-              {
-                title: "[Note] Syntax",
-                caption: "森罗万象的笔记，记录简单的全栈相关知识，内容随时更新，和 GitHub 对上了一点电波。由于内容来自其他仓库，加载速度可能依照所在地域以及笔记体量有所不同。",
-                date: "20210914"
-              },
-              {
-                title: "[Note] Metaphysics Concept",
-                caption: "这是有关形而上学的名词解释，是通过快速阅读各种来路不明的资料后，简单地对各个概念做的诠释。如果在理解名词上设置过高的壁垒，那么就无法从无尽的概念文字中脱身。",
-                date: "20211012"
-              },
-              {
-                title: "[Light] 雪霁",
-                caption: "写起来非常痛苦，有生之年恐怕是不会补完了。",
-                date: "20210514"
-              },
-              {
-                title: "[Blog] Sakai",
-                caption: "这个人写下了指导他写作的基本准则，本来没有记录这个的打算，但是终于还是写下了。希望了解这些的人，会期望从中得到启示；厌恶这一切的人，会想看看这人如何大逆不道，然后驳斥这离经叛道的胡言乱语。但是，这到底也只是一个人毫无根据的呓语，请放过他吧。",
-                date: "20210408"
-              },
-              {
-                title: "[Note] Mathematical Logic",
-                caption: "一个记录逻辑与形而上学相关的笔记本，主要以记录结论而不是推导过程为主。内容包括基本的形式逻辑，形而上学和数理逻辑。",
-                date: "20210301"
-              },
-              {
-                title: "[Beatmap] Rainbow Snow",
-                caption: "由 ななひら 和 nayuta 演唱的，塚越雄一朗作曲的作品。由于出色的间奏旋律以及轻快的旋律，不知不觉就做了三个难度，都不是 TECH。次难度以大量出现的低频率二连为主，无论是单双还是强双都能顺利地打下去。主难度已经超过作图者的自身水平，所以不保证质量。",
-                date: "20200913"
-              },
-              {
-                title: "[Note] 基础音乐理论笔记",
-                caption: "简单的音乐理论，包括少量编曲内容。话是这么说，事实上有些东西（尤其是爵士乐理论）学完之后两个小时内就忘光了。",
-                date: "20200819"
-              },
-              {
-                title: "[Virtual] 魔术师从镜子里拿出万国旗",
-                caption: "无意识是指那些在通常情况下根本不会进入意识层面的东西，例如内心深处被压抑而无从意识到的秘密想法或恐惧。注意：本故事并不属于主线构成，也不是以供人阅读为目的而写就的。",
-                date: "20200815"
-              },
-              {
-                title: "[Skin] Ichinoe's Skin",
-                caption: "在没有使用过 PS 的前提下（其实还是用了），凑出了一套标准模式的皮肤。主要使用蓝白两色，字体较细的风格，图标以简洁为主。",
-                date: "20200630"
-              },
-              {
-                title: "[Light] 红叶酒",
-                caption: "说来你可能不信，我不会打麻将。",
-                date: "20200714"
-              },
-              {
-                title: "[Virtual] 白扇",
-                caption: "并不是科幻。注意：本故事并不属于主线构成，也不是以供人阅读为目的而写就的。",
-                date: "20200708"
-              },
-              {
-                title: "[Beatmap] DEEP BLUE TOWN へおいでよ",
-                caption: "纪念企划 iMarine Project 的 PV 配曲，用于很多 MMD 的背景乐中。并不是以 TECH 的标准制作的图，大部分都是简单的五连，但不一定完全契合作品的本身节奏。",
-                date: "20200506"
-              },
-              {
-                title: "[MMD] あぴミク コレクション",
-                caption: "第一次学习 Ray 渲染（其实是第一次接触到 MMD），瑕疵颇多，穿模和布料的问题都很严重，而且在调饱和度和景深的方面热情过了头。另外，如果我不说，可能没人知道，画面里绝大部分的物质材质都调成了头发。",
-                date: "20200503"
-              },
-              {
-                title: "[Beatmap] 七つ一旋桜",
-                caption: "由同人社团「木制みゅーと」制作的和风电子，可能因为是个东方同人社团，所以怎么听都像同人曲。Hollow Wings 亲自下场作过此图，但是和她不同，我只是简单地做成了跳图。",
-                date: "20191205"
-              },
-              {
-                title: "[Light] 风神木",
-                caption: "有什么样的东西可以被自然地产生，想法，概念，抑或是能量呢……",
-                date: "20190611"
-              },
-              {
-                title: "[RGSS] 東方月桜祭",
-                caption: "本来是计划制作一个不甚完整的东方二次同人故事，为此还把儚月抄读了两遍。但是由于某些时机上的原因，现在这个企划已经无限期搁置了。",
-                date: "20180829"
-              },
-              {
-                title: "[Note] 意象收集计划",
-                caption: "探索单个字词可以营造的意境，尝试将美感从构建好的文本中解构出来。不只收集季语，但是季语占了相当一部分篇幅。不限于汉字，汉字部分会从简体，繁体，日式简体中选取自己看着一个最顺眼的。",
-                date: "20180817"
-              },
-              {
-                title: "[Light] 純きセラフ",
-                caption: "启发于机场与地下停车场天花板的产物。",
-                date: "20180710"
-              },
-              {
-                title: "[Novella] 七つ柊水光",
-                caption: "记录学生会和风纪委员会的小打小闹，并不是短篇。到目前为止还没有写完。标题是同人社团「木制みゅーと」的专辑『神楽ノ舞』的一首曲子。",
-                date: "20180101"
-              }
-            ]
-
             const convertDate = (dateString) => {
               const monthName = ["Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
               let yearString = dateString.slice(0, 4)
@@ -253,12 +136,10 @@
           </script>
 
           <!-- Pager -->
-          <!--
           <div class="clearfix">
-            <a class="btn btn-primary float-left" href="#">&larr; Later</a>
-            <a class="btn btn-primary float-right" href="#">Earlier &rarr;</a>
+            <a class="btn btn-outline-secondary float-left" href="#">&larr; Later</a>
+            <a class="btn btn-outline-secondary float-right" href="#">Earlier &rarr;</a>
           </div>
-          -->
         </div>
       </div>
     </div>
