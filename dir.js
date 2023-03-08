@@ -62,7 +62,7 @@ const list = [
   {
     title: "[Skin] Ichinoe's Skin",
     caption: "在没有使用过 PS 的前提下（其实还是用了），凑出了一套标准模式的皮肤。主要使用蓝白两色，字体较细的风格，图标以简洁为主。",
-    date: "20200630"
+    date: "20200730"
   },
   {
     title: "[Light] 红叶酒",

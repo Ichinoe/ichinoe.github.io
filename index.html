@@ -98,6 +98,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto" id="list-anchor">
           <script src="dir.js"></script>
+          <script src="js/util.js"></script>
 
           <!-- Pager -->
           <div class="clearfix" id="nav-buttons">
@@ -106,23 +107,6 @@
           </div>
 
           <script>
-            const getQueryString = (name) => {
-                let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-                let r = window.location.search.substr(1).match(reg);
-                if (r != null) {
-                  return unescape(r[2]);
-                }
-                return undefined;
-            }
-
-            const convertDate = (dateString) => {
-              const monthName = ["Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
-              let yearString = dateString.slice(0, 4);
-              let month = Number(dateString.slice(4, 6));
-              let day = Number(dateString.slice(6, 8));
-              return `${monthName[month - 1]} ${day}, ${yearString}`;
-            }
-
             let pageNum = Number(getQueryString("page"));
             const maxPerPage = 10;
             const maxPage = Math.ceil(list.length / maxPerPage);
@@ -155,7 +139,7 @@
               newItemLinkTitle.innerText = item.title
               newItemLinkCaption.className = "post-subtitle"
               newItemLinkCaption.innerText = item.caption
-              newItemLink.href=`pages/${item.date.slice(2)}.html`;
+              newItemLink.href=`pages/${item.date.slice(2)}.html?from=${pageNum}`;
               newItemDate.className="post-meta";
               newItemDate.align = "right";
               newItemDate.innerText = convertDate(item.date);

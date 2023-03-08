@@ -37,7 +37,15 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="../index.html"> Ichinoe </a>
+            <a class="navbar-brand" href="../index.html" id="ichinoe"> Ichinoe </a>
+      <script src="../js/util.js"></script>
+      <script>
+        let pageNum = getQueryString("from");
+
+        if (pageNum !== undefined) {
+          document.querySelector("#ichinoe").href = `../index.html?page=${pageNum}`;
+        }
+      </script>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
