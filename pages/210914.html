@@ -93,8 +93,8 @@
   <hr>
 
   <script>
-    const rawContent = 'https://github.com/ShiinaHiiragi/note/raw/master/syntax/syntax.md';
-    fetch(`${rawContent}Syntax.md`)
+    const rawContent = 'https://raw.githubusercontent.com/ShiinaHiiragi/note/master/syntax/';
+    fetch(`${rawContent}syntax.md`)
       .then(response => response.text())
       .then(text => text.replace(/\[TOC\]/, ''))
       .then(text => text.replace(/# [\w\s]+\n/, ''))
