@@ -1,5 +1,10 @@
 const list = [
   {
+    title: "[Test] Math",
+    caption: "一张功德无量的数学试卷。",
+    date: "20230429"
+  },
+  {
     title: "[Virtual] BONUS",
     caption: "随机掉落一些充满狂气的短篇。",
     date: "20230401"
