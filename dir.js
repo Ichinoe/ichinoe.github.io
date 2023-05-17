@@ -37,7 +37,7 @@ const list = [
   {
     title: "[Note] Metaphysics Concept",
     caption: "这是有关形而上学的名词解释，是通过快速阅读各种来路不明的资料后，简单地对各个概念做的诠释。如果在理解名词上设置过高的壁垒，那么就无法从无尽的概念文字中脱身。",
-    date: "20211012"
+    date: "20210812"
   },
   {
     title: "[Light] 雪霁",
